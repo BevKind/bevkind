@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BevKind</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Poppins', sans-serif; margin: 0; background: #e0f7e9; color: #333; }
+    header, footer { background: #f9f9f9; padding: 1rem 2rem; }
+    header h1 { font-size: 1.8rem; color: #00796b; }
+    nav a { margin-left: 1rem; text-decoration: none; color: #00796b; font-weight: 500; }
+    section { padding: 2rem; }
+    .hero { text-align: center; background: linear-gradient(to right, #b2dfdb, #e0f7e9); padding: 3rem 2rem; }
+    .hero h2 { font-size: 2.5rem; margin-bottom: 1rem; color: #004d40; }
+    .hero p { font-size: 1.2rem; max-width: 600px; margin: auto; color: #00695c; }
+    .projects { display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; margin-top: 2rem; }
+    .card { background: white; border-radius: 1rem; padding: 1rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1); width: 300px; transition: transform 0.3s, box-shadow 0.3s; display: flex;flex-direction: column;justify-content: space-between;height: 100%;}
+    .card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+    .card img { background: #ddd; height: 160px; width: 100%; border-radius: 0.75rem; margin-bottom: 1rem; object-fit: cover; }
+    .card h4 { margin: 0 0 0.5rem; color: #00796b; }
+    .card p { font-size: 0.95rem; margin-bottom: 1rem; }
+    .card button { background: #d28a7c; color: white; border: none; padding: 0.5rem 1.5rem; border-radius: 0.5rem; cursor: pointer; font-weight: 600; }
+    .card button:hover { background: #ba6b63; }
+    footer { text-align: center; font-size: 0.875rem; margin-top: 2rem; color: #777; }
+    .filters select { margin-right: 1rem; padding: 0.5rem; border-radius: 0.5rem; border: 1px solid #ccc; }
+    .progress-bar {background: #d28a7c;height: 10px; transition: width 0.5s, background-color 0.5s;}
+    .progress-bar[data-progress="high"] {background: #4caf50;}
+
+  </style>
+</head>
+<body>
+    <header style="display: flex; align-items: center; justify-content: space-between;">
+        <div style="display: flex; align-items: center;">
+          <img src="images/logo.png" alt="BevKind Logo" style="height: 120px; margin-right: 10px;">
+          <h1>BevKind</h1>
+        </div>
+        <nav>
+          <a href="#regoins">ภาค</a>
+          <a href="#projects">โครงการ</a>
+          <a href="#products">สินค้าในโรงเรียน</a>
+          <a href="fundings.html">เพจระดมทุน</a>
+          <a href="#about">เกี่ยวกับเรา</a>
+          <a href="login.html">Login</a>
+        </nav>
+      </header>
+
+      <section class="hero" style="background: url('images/main_banner.jpg') center/cover no-repeat; height: 600px; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 0.5rem;">
+      </section>
+
+      <section id="regions" style="padding: 4rem 2rem; background: #e0f7e9;">
+        <h2 style="text-align: center; margin-bottom: 2rem; color: #00796b;">โรงเรียนในแต่ละภาค</h2>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
+          <a href="north.html" style="text-decoration: none;">
+            <div class="region-card" style="background-image: url('images/north.jpg');"></div>
+          </a>
+          <a href="central.html" style="text-decoration: none;">
+            <div class="region-card" style="background-image: url('images/central.jpg');"></div>
+          </a>
+          <a href="northeast.html" style="text-decoration: none;">
+            <div class="region-card" style="background-image: url('images/northeast.jpg');"></div>
+          </a>
+          <a href="south.html" style="text-decoration: none;">
+            <div class="region-card" style="background-image: url('images/south.jpg');"></div>
+          </a>
+        </div>
+      </section>
+      
+      <style>
+        .region-card {
+          width: 250px;
+          height: 300px;
+          border-radius: 1rem;
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          display: flex;
+          align-items: flex-end;
+          justify-content: center;
+          color: white;
+          font-weight: bold;
+          font-size: 1.2rem;
+          padding: 1rem;
+          background-blend-mode: overlay;
+          background-color: rgba(0,0,0,0.1);
+          transition: transform 0.3s, background-color 0.3s;
+          overflow: hidden;
+        }
+      
+        .region-card:hover {
+          transform: scale(1.05);
+          background-color: rgba(0,0,0,0.5);
+        }
+      </style>
+  
+  <section id="ongoin_projects" style="padding: 4rem 2rem; background: #e0f7e9;">
+    <h2 style="text-align: center; margin-bottom: 2rem; color: #00796b;">โครงการที่กำลังระดมทุน</h2>
+    <div class="projects">
+        <div class="card" data-category="utilities" data-region="north" data-status="ongoin_projects">
+          <img src="images/op1.jpg" alt="Project 1" />
+          <h4>สนับสนุนโรงเรียนโคกขามโนนสมบูรณ์</h4>
+          <p>กิจกรรมสร้างร้านกาแฟและสวัสดิการณ์</p>
+          <!-- Progress bar -->
+          <div style="margin: 0.5rem 0;">
+          <div style="font-size: 0.9rem; margin-bottom: 0.25rem;">
+          ฿5,000 raised of ฿10,000
+           </div>
+          <div style="background: #eee; border-radius: 0.5rem; overflow: hidden;">
+           <div class="progress-bar" style="width: 25%; height: 10px;"></div>
+          </div>
+          </div>    
+        
+          <!-- Donate Button-->
+          <div style="margin-top: auto;">
+          <a href="op1.html"
+        style="text-decoration: none;">
+          <button>Donate</button></a></div>
+        </div>
+
+        <div class="card" data-category="foods" data-region="central" data-status="ongoing_projects">
+            <img src="images/op2.jpg" alt="Project 2" />
+            <h4>สนับสนุนโรงเรียนวัดจุฬามณี</h4>
+            <p>กิจกรรมผ้าป่าเพื่อสมทบทุนอาหารกลางวัน</p>
+            <!-- Progress Bar -->
+            <div style="margin: 0.5rem 0;">
+                        <div style="font-size: 0.9rem; margin-bottom: 0.25rem;">
+                        ฿4,000 raised of ฿10,000
+                         </div>
+                        <div style="background: #eee; border-radius: 0.5rem; overflow: hidden;">
+                         <div class="progress-bar" style="width: 25%; height: 10px;"></div>
+                        </div>
+                        </div>  
+            <button>Donate</button>
+          </div>
+    
+          <div class="card" data-category="education" data-region="south" data-status="ongoing_projects">
+            <img src="images/op3.jpg" alt="Project 3" />
+            <h4>สนับสนุนโรงเรียนวัดสิงห์</h4>
+            <p>กิจกรรมเสริมสร้างทักษะวอลเลย์บอลชายหาด</p>
+                    <!-- Progress Bar -->
+                    <div style="margin: 0.5rem 0;">
+                        <div style="font-size: 0.9rem; margin-bottom: 0.25rem;">
+                        ฿2,000 raised of ฿10,000
+                         </div>
+                        <div style="background: #eee; border-radius: 0.5rem; overflow: hidden;">
+                         <div class="progress-bar" style="width: 25%; height: 10px;"></div>
+                        </div>
+                        </div>  
+            <button>Donate</button>
+          </div>
+    
+          <div class="card" data-category="women" data-region="northeast" data-status="ongoing_projects">
+            <img src="images/op4.jpg" alt="Project 4" />
+            <h4>สนับสนุนโรงเรียนบ้านดอนโพธิ์</h4>
+            <p>กิจกรรมทาสีอาคารเรียนและทาสีสนามเด็กเล่นให้เด็กนักเรียน</p>
+                    <!-- Progress Bar -->
+                    <div style="margin: 0.5rem 0;">
+                        <div style="font-size: 0.9rem; margin-bottom: 0.25rem;">
+                        ฿25,000 raised of ฿100,000
+                         </div>
+                        <div style="background: #eee; border-radius: 0.5rem; overflow: hidden;">
+                         <div class="progress-bar" style="width: 25%; height: 10px;"></div>
+                        </div>
+                        </div>  
+            <button>Donate</button>
+          </div>
+
+          <div class="card" data-category="utilities" data-region="south" data-status="ongoing_projects">
+            <img src="images/op4.jpg" alt="Project 4" />
+            <h4>สนับสนุนโรงเรียนบ้านดอนโพธิ์</h4>
+            <p>กิจกรรมทาสีอาคารเรียนและทาสีสนามเด็กเล่นให้เด็กนักเรียน</p>
+                    <!-- Progress Bar -->
+                    <div style="margin: 0.5rem 0;">
+                        <div style="font-size: 0.9rem; margin-bottom: 0.25rem;">
+                        ฿6,000 raised of ฿10,000
+                         </div>
+                        <div style="background: #eee; border-radius: 0.5rem; overflow: hidden;">
+                         <div class="progress-bar" style="width: 60%; height: 10px;"></div>
+                        </div>
+                        </div>  
+            <button>Donate</button>
+          </div>
+
+ 
+  </section>
+  
+  <style>
+    .op-card {
+      width: 250px;
+      height: 300px;
+      border-radius: 1rem;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 1.2rem;
+      padding: 1rem;
+      background-blend-mode: overlay;
+      background-color: rgba(0,0,0,0.1);
+      transition: transform 0.3s, background-color 0.3s;
+      overflow: hidden;
+    }
+  
+    .op-card:hover {
+      transform: scale(1.05);
+      background-color: rgba(0,0,0,0.5);
+    }
+  </style>
+
+<section id="closing_projects" style="padding: 4rem 2rem; background: #e0f7e9;">
+    <h2 style="text-align: center; margin-bottom: 2rem; color: #00796b;">โครงการที่ใกล้ปิดยอดแล้ว</h2>
+    <div class="projects">
+    <div class="card" data-category="foods" data-region="central"data-status="closing_projects">
+        <img src="images/cp1.jpg" alt="Project 5" />
+        <h4>สนับสนุนโรงเรียนวัดกระทุ่ม</h4>
+        <p>กิจกรรมทำขนมทองม้วนขายเพื่อเป็นรายได้เสริมให้แก่นักเรียน</p>
+         <!-- Progress Bar -->
+         <div style="margin: 0.5rem 0;">
+            <div style="font-size: 0.9rem; margin-bottom: 0.25rem;">
+            ฿8,500 raised of ฿10,000
+             </div>
+            <div style="background: #eee; border-radius: 0.5rem; overflow: hidden;">
+             <div class="progress-bar" style="width: 85%; height: 10px;"></div>
+            </div>
+            </div>  
+        <button>Donate</button>
+      </div>  
+      
+      <div class="card" data-category="education" data-region="north" data-status="closing_projects">
+        <img src="images/cp2.jpg" alt="Project 6" />
+        <h4>สนับสนุนโรงเรียนบ้านห้วยไร่สามัคคี</h4>
+        <p>กิจกรรมส่งเสริมทักษะวิชาชีพบาริสต้าเพื่อแนวทางประกอบอาชีพในอนาคต</p>
+                <!-- Progress Bar -->
+                <div style="margin: 0.5rem 0;">
+                    <div style="font-size: 0.9rem; margin-bottom: 0.25rem;">
+                    ฿9,000 raised of ฿10,000
+                     </div>
+                    <div style="background: #eee; border-radius: 0.5rem; overflow: hidden;">
+                     <div class="progress-bar" style="width: 90%; height: 10px;"></div>
+                    </div>
+                    </div>  
+        <button>Donate</button>
+      </div>
+
+      <div class="card" data-category="supplies" data-region="northeast" data-status="closing_projects">
+        <img src="images/cp3.jpg" alt="Project 7" />
+        <h4>สนับสนุนโรงเรียนโคกขามโนนสมบูรณ์</h4>
+        <p>กิจกรรมส่งมอบอุปกรณ์การเรียนและแอลกอฮอล์</p>
+                <!-- Progress Bar -->
+                <div style="margin: 0.5rem 0;">
+                    <div style="font-size: 0.9rem; margin-bottom: 0.25rem;">
+                    ฿9,000 raised of ฿10,000
+                     </div>
+                    <div style="background: #eee; border-radius: 0.5rem; overflow: hidden;">
+                     <div class="progress-bar" style="width: 90%; height: 10px;"></div>
+                    </div>
+                    </div>  
+        <button>Donate</button>
+      </div>
+
+      
+    </div>
+  </section>
+  
+  <style>
+    .cp-card {
+      width: 250px;
+      height: 300px;
+      border-radius: 1rem;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 1.2rem;
+      padding: 1rem;
+      background-blend-mode: overlay;
+      background-color: rgba(0,0,0,0.1);
+      transition: transform 0.3s, background-color 0.3s;
+      overflow: hidden;
+    }
+  
+    .cp-card:hover {
+      transform: scale(1.05);
+      background-color: rgba(0,0,0,0.5);
+    }
+  </style>
+
+<section id="finished_projects" style="padding: 4rem 2rem; background: #e0f7e9;">
+    <h2 style="text-align: center; margin-bottom: 2rem; color: #00796b;">โครงการที่ระดมทุนสำเร็จแล้ว</h2>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
+      <a href="fp1.html" style="text-decoration: none;">
+        <div class="fp-card" style="background-image: url('images/fp1.jpg');">สนับสนุนโรงเรียนท่าฉางวิทยาการ กิจกรรมฝึกอบรมทักษะฟุตบอลเบื้องต้นให้แก่น้อยเยาวชน</div>
+      </a>
+      <a href="fp2.html" style="text-decoration: none;">
+        <div class="fp-card" style="background-image: url('images/fp2.jpg');">สนับสนุนโรงเรียนอนุบาลเกาะคา กิจกรรมการฝึกอบรมทำขนมเพื่อหารายได้ระหว่างเรียน</div>
+      </a>
+    </div>
+  </section>
+  
+  <style>
+    .fp-card {
+      width: 250px;
+      height: 300px;
+      border-radius: 1rem;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 1.2rem;
+      padding: 1rem;
+      background-blend-mode: overlay;
+      background-color: rgba(0,0,0,0.1);
+      transition: transform 0.3s, background-color 0.3s;
+      overflow: hidden;
+    }
+  
+    .fp-card:hover {
+      transform: scale(1.05);
+      background-color: rgba(0,0,0,0.5);
+    }
+  </style>
+
+  <section id="projects">
+    <h3>Featured Projects</h3>
+    <div class="filters">
+      <select id="category-filter">
+        <option value="">ทุกหมวดหมู่</option>
+        <option value="education">การศึกษา,กีฬา</option>
+        <option value="supplies">สิ่งของ,เสื้อผ้า</option>
+        <option value="foods">อาหาร</option>
+        <option value="utilities">สาธารณูปโภค</option>
+      </select>
+      <select id="region-filter">
+        <option value="">ทุกภาค</option>
+        <option value="north">ภาคเหนือ</option>
+        <option value="central">ภาคกลาง</option>
+        <option value="northeast">ภาคอีสาน</option>
+        <option value="south">ภาคใต้</option>
+      </select>
+      <select id="status-filter">
+        <option value="">ทุกสถานะโครงการ</option>
+        <option value="ongoing_projects">โครงการที่กำลังระดมทุน</option>
+        <option value="closing_projects">โครงการที่ใกล้ปิดยอดแล้ว</option>
+      </select>
+    </div>
+    <div class="projects">
+      <div class="card" data-category="utilities" data-region="north" data-status="ongoing_projects">
+        <img src="images/op1.jpg" alt="Project 1" />
+        <h4>สนับสนุนโรงเรียนโคกขามโนนสมบูรณ์</h4>
+        <p>กิจกรรมสร้างร้านกาแฟและสวัสดิการณ์</p>
+         <!-- Progress Bar -->
+        <div style="margin: 0.5rem 0;">
+        <div style="font-size: 0.9rem; margin-bottom: 0.25rem;">
+        ฿5,000 raised of ฿10,000
+         </div>
+        <div style="background: #eee; border-radius: 0.5rem; overflow: hidden;">
+         <div class="progress-bar" style="width: 50%; height: 10px;"></div>
+        </div>
+  </div>
+        <button>Donate</button>
+      </div>
+
+      <div class="card" data-category="foods" data-region="central" data-status="ongoing_projects">
+        <img src="images/op2.jpg" alt="Project 2" />
+        <h4>สนับสนุนโรงเรียนวัดจุฬามณี</h4>
+        <p>กิจกรรมผ้าป่าเพื่อสมทบทุนอาหารกลางวัน</p>
+        <!-- Progress Bar -->
+        <div style="margin: 0.5rem 0;">
+                    <div style="font-size: 0.9rem; margin-bottom: 0.25rem;">
+                    ฿4,000 raised of ฿10,000
+                     </div>
+                    <div style="background: #eee; border-radius: 0.5rem; overflow: hidden;">
+                     <div class="progress-bar" style="width: 40%; height: 10px;"></div>
+                    </div>
+                    </div>  
+        <button>Donate</button>
+      </div>
+
+      <div class="card" data-category="education" data-region="south" data-status="ongoing_projects">
+        <img src="images/op3.jpg" alt="Project 3" />
+        <h4>สนับสนุนโรงเรียนวัดสิงห์</h4>
+        <p>กิจกรรมเสริมสร้างทักษะวอลเลย์บอลชายหาด</p>
+                <!-- Progress Bar -->
+                <div style="margin: 0.5rem 0;">
+                    <div style="font-size: 0.9rem; margin-bottom: 0.25rem;">
+                    ฿2,000 raised of ฿10,000
+                     </div>
+                    <div style="background: #eee; border-radius: 0.5rem; overflow: hidden;">
+                     <div class="progress-bar" style="width: 20%; height: 10px;"></div>
+                    </div>
+                    </div>  
+        <button>Donate</button>
+      </div>
+
+      <div class="card" data-category="utilities" data-region="south" data-status="ongoing_projects">
+        <img src="images/op4.jpg" alt="Project 4" />
+        <h4>สนับสนุนโรงเรียนบ้านดอนโพธิ์</h4>
+        <p>กิจกรรมทาสีอาคารเรียนและทาสีสนามเด็กเล่นให้เด็กนักเรียน</p>
+                <!-- Progress Bar -->
+                <div style="margin: 0.5rem 0;">
+                    <div style="font-size: 0.9rem; margin-bottom: 0.25rem;">
+                    ฿6,000 raised of ฿10,000
+                     </div>
+                    <div style="background: #eee; border-radius: 0.5rem; overflow: hidden;">
+                     <div class="progress-bar" style="width: 60%; height: 10px;"></div>
+                    </div>
+                    </div>  
+        <button>Donate</button>
+      </div>
+
+      <div class="card" data-category="foods" data-region="central"data-status="closing_projects">
+        <img src="images/cp1.jpg" alt="Project 5" />
+        <h4>สนับสนุนโรงเรียนวัดกระทุ่ม</h4>
+        <p>กิจกรรมทำขนมทองม้วนขายเพื่อเป็นรายได้เสริมให้แก่นักเรียน</p>
+         <!-- Progress Bar -->
+         <div style="margin: 0.5rem 0;">
+            <div style="font-size: 0.9rem; margin-bottom: 0.25rem;">
+            ฿8,500 raised of ฿10,000
+             </div>
+            <div style="background: #eee; border-radius: 0.5rem; overflow: hidden;">
+             <div class="progress-bar" style="width: 85%; height: 10px;"></div>
+            </div>
+            </div>  
+        <button>Donate</button>
+      </div>  
+      
+      <div class="card" data-category="education" data-region="north" data-status="closing_projects">
+        <img src="images/cp2.jpg" alt="Project 6" />
+        <h4>สนับสนุนโรงเรียนบ้านห้วยไร่สามัคคี</h4>
+        <p>กิจกรรมส่งเสริมทักษะวิชาชีพบาริสต้าเพื่อแนวทางประกอบอาชีพในอนาคต</p>
+                <!-- Progress Bar -->
+                <div style="margin: 0.5rem 0;">
+                    <div style="font-size: 0.9rem; margin-bottom: 0.25rem;">
+                    ฿9,000 raised of ฿10,000
+                     </div>
+                    <div style="background: #eee; border-radius: 0.5rem; overflow: hidden;">
+                     <div class="progress-bar" style="width: 90%; height: 10px;"></div>
+                    </div>
+                    </div>  
+        <button>Donate</button>
+      </div>
+
+      <div class="card" data-category="supplies" data-region="northeast" data-status="closing_projects">
+        <img src="images/cp3.jpg" alt="Project 7" />
+        <h4>สนับสนุนโรงเรียนโคกขามโนนสมบูรณ์</h4>
+        <p>กิจกรรมส่งมอบอุปกรณ์การเรียนและแอลกอฮอล์</p>
+                <!-- Progress Bar -->
+                <div style="margin: 0.5rem 0;">
+                    <div style="font-size: 0.9rem; margin-bottom: 0.25rem;">
+                    ฿9,000 raised of ฿10,000
+                     </div>
+                    <div style="background: #eee; border-radius: 0.5rem; overflow: hidden;">
+                     <div class="progress-bar" style="width: 90%; height: 10px;"></div>
+                    </div>
+                    </div>  
+        <button>Donate</button>
+      </div>
+    </div>  
+    </div>
+  </section>
+
+  <section id="meal-banner" style="margin: 4rem 0;">
+    <a href="payment_meal.html" style="display: block;">
+      <img src="images/meal.JPG" alt="Meal Donate" style="width: 100%; height: auto; border-radius: 1rem;">
+    </a>
+  </section>
+
+  <section id="products-banner" style="margin: 4rem 0;">
+    <a href="products.html" style="display: block;">
+      <img src="images/Products_banner.jpg" alt="Products Donate" style="width: 100%; height: auto; border-radius: 1rem;">
+    </a>
+  </section>
+
+  <section id="about">
+    <h3 style="text-align: left; margin-bottom: 2rem; color: #00796b;">เกี่ยวกับเรา</h3>
+    <p>ไทยเบฟให้ความสำคัญกับการสนับสนุนด้านการศึกษาแก่เด็ก
+      และเยาวชน ผ่านการดำเนินโครงการและกิจกรรมที่ส่งเสริมความรู้ 
+     และศักยภาพในทุกระดับ โดยมุ่งเน้นการพัฒนาเยาวชนในด้าน ความยั่งยืน การเงิน 
+     การอนุรักษ์วัฒนธรรมและประเพณี ตลอดจน 
+     การปกป้องสิ่งแวดล้อมและทรัพยากรธรรมชาติทั้งในและ นอกห้องเรียน 
+     ด้วยความมุ่งหวังให้เป็นรากฐานสำหรับให้ทุกคน นำไปประยุกต์ใช้เพื่อพัฒนาตนเอง สามารถปรับตัวและก้าวทัน สถานการณ์โลกในยุคที่มีการเปลี่ยนแปลงตลอดเวลา รวมถึง การพัฒนาสังคมและประเทศชาติต่อไป</p>
+    <h3 style="text-align: left; margin-bottom: 2rem; color: #00796b;">ทำความรู้จัก BevKind</h3>
+    <p>โครงการ</p>      <p>สินค้าในโรงเรียน</p>
+    <p>เกี่ยวกับเรา</p> <p>กิจกรรมต่างๆ</p>
+  </section>
+
+  <section id="donator">
+    <h3 style="text-align: left; margin-bottom: 2rem; color: #00796b;">ผู้บริจาค</h3>
+    <p>การลดหย่อนภาษี</p>       <p>เพจระดมทุน</p>
+    <p>Q&A</p>
+  </section>
+
+  <section id="follow us">
+    <h3 style="text-align: left; margin-bottom: 2rem; color: #00796b;">ติดตามข้อมูลเพจต่างๆ</h3>
+  </section>
+
+  <section id="contact us">
+    <h3 style="text-align: left; margin-bottom: 2rem; color: #00796b;">ติดต่อเรา</h3>
+    <p>080-888-777</p>
+    <p>BevKind@gmail.com</p>
+  </section>
+
+  <footer>
+    © 2025 BevKind. All rights reserved.
+  </footer>
+
+  <script>
+    const categoryFilter = document.getElementById('category-filter');
+    const regionFilter = document.getElementById('region-filter');
+    const statusFilter = document.getElementById('status-filter');
+    const cards = document.querySelectorAll('.card');
+
+    function filterProjects() {
+      const selectedCategory = categoryFilter.value;
+      const selectedRegion = regionFilter.value;
+      const selectedStatus = statusFilter.value;
+
+      cards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        const region = card.getAttribute('data-region');
+        const status = card.getAttribute('data-status');
+
+        if ((selectedCategory === '' || category === selectedCategory) &&
+            (selectedRegion === '' || region === selectedRegion) &&
+            (selectedStatus === '' || status === selectedStatus)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    categoryFilter.addEventListener('change', filterProjects);
+    regionFilter.addEventListener('change', filterProjects);
+    statusFilter.addEventListener('change', filterProjects);
+    document.querySelectorAll('.progress-bar').forEach(bar => {
+    const width = parseInt(bar.style.width);
+    if (width >= 70) {
+      bar.setAttribute('data-progress', 'high');
+    }
+  });
+  </script>
+</body>
+</html>
